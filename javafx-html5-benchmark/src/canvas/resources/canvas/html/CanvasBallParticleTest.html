@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+body {
+	margin: 0px;
+	padding: 0px;
+}
+</style>
+</head>
+<body onload="start()">
+	<canvas id="canvas"></canvas>
+	<script src="particles.js"></script>
+	<script>
+		function ballRenderer() {
+			this.recommendedParticles = 1000;
+			this.blur = false;
+			this.render = function(p) {
+				drawEllipse(p.x, p.y, p.r, p.r, p.color);
+//				drawArc(p.x, p.y, p.r/2, p.color);
+			}
+		}
+
+		function start() {
+			animate(new ballRenderer);
+		}
+	</script>
+</body>
+</html>

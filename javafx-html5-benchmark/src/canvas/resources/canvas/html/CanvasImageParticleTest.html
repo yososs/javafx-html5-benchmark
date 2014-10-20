@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+body {
+	margin: 0px;
+	padding: 0px;
+}
+</style>
+</head>
+<body onload="start()">
+	<canvas id="canvas"></canvas>
+	<script src="particles.js"></script>
+	<script>
+		var image = new Image();
+		image.src = 'duke.png';
+
+		function imageRenderer() {
+			this.recommendedParticles = 1000;
+			this.blur = false;
+			this.render = function(p) {
+				ctx.drawImage(image, p.x, p.y, p.r * 2, p.r * 2);
+			}
+		}
+
+		function start() {
+			animate(new imageRenderer);
+		}
+	</script>
+</body>
+</html>

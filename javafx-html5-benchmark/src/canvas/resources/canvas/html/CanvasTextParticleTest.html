@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+body {
+	margin: 0px;
+	padding: 0px;
+}
+</style>
+</head>
+<body onload="start()">
+	<canvas id="canvas"></canvas>
+	<script src="particles.js"></script>
+	<script>
+		function textRenderer() {
+			this.recommendedParticles = 1000;
+			this.render = function(p) {
+				this.blur = false;
+				ctx.font = (p.r / 2) + 'pt Arial';
+				ctx.fillStyle = p.color;
+				ctx.fillText('JavaScript', p.x, p.y);
+			}
+		}
+
+		function start() {
+			animate(new textRenderer);
+		}
+	</script>
+</body>
+</html>
